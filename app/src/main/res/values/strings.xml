@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MyLearnMath</string>
+    <string name="calculate_title">Math excercises</string>
+    <string name="challenge">אתגר</string>
+    <string name="multi_20">כפל עד 20</string>
+    <string name="multi_table">לוח הכפל</string>
+    <string name="answer">תשובה</string>
+    <string name="test">בדיקה</string>
+    <string name="my_score">My score</string>
+    <string name="user">שם משתמש</string>
+    <string name="start_game">Start game</string>
+    <string name="password">סיסמה</string>
+</resources>

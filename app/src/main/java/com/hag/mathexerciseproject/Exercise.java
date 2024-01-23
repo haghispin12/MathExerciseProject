@@ -2,8 +2,6 @@ package com.hag.mathexerciseproject;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.hag.mathexerciseproject.classes.TYPE;
-
 import java.util.Random;
 
 
@@ -51,37 +49,7 @@ public class Exercise {
     }
 
 
-    /**
-     * numbers between 0-9, 19,99
-     * @param type
-     * @param num1
-     * @param num2
-     */
-    public void generateNumbers(TYPE type, MutableLiveData<Integer> num1, MutableLiveData<Integer> num2)
-    {
-        Random r = new Random();
-        switch(type)
-        {
-            case TILL_TWENTY:
-                this.num1 = r.nextInt(10);
-                this.num2 = r.nextInt(10);
-                break;
-            case CHELLENGE:
-                this.num1 = r.nextInt(10);
-                this.num2 = r.nextInt(10)+10;
-                break;
-            case MULTI_TABLE:
-                this.num1 = r.nextInt(10);
-                this.num2 = r.nextInt(90)+10;
-                break;
 
-        }
-        num1.setValue(this.num1);
-        num2.setValue(this.num2);
-        result = this.num1*this.num2;
-        // generate random numbers
-        // calculate result
-    }
 
     /**
      *

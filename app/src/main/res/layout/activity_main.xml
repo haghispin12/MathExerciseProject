@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.MainActivity"
+    tools:context=".MainActivity"
     android:orientation="vertical"
 
     >
@@ -58,7 +58,6 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="challenge"
             android:background="@android:color/holo_purple"
             android:text="@string/challenge"
             />
@@ -70,7 +69,6 @@
             android:background="@android:color/holo_purple"
             android:layout_marginHorizontal="10dp"
             android:text="@string/multi_20"
-            android:onClick="multi20"
             />
 
         <Button
@@ -81,7 +79,6 @@
             android:text="@string/multi_table"
             android:background="@android:color/holo_purple"
             android:layout_marginEnd="10dp"
-            android:onClick="multitable"
             />
 
     </LinearLayout>
@@ -143,7 +140,6 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text="@string/test"
-            android:onClick="checkAnswer"
             android:background="@android:color/holo_purple"
             android:layout_marginBottom="5dp"/>
 
@@ -159,7 +155,6 @@
 
     <Button
         android:id="@+id/btnShow"
-        android:onClick="showAllUsers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Show all users" />

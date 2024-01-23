@@ -7,7 +7,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Random;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -21,19 +25,22 @@ public class MainActivity extends AppCompatActivity {
     private  Button btnMulti20;
 
     private EditText etMainAnswer;
+    private int num1;
+    private int num2;
+    private int result;
 
-    Exercise exercise;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initViews();
-        exercise=new Exercise();
     }
 
 
-
+    /**
+     * initialize
+      */
     private void initViews() {
         tvMainFirstNum = findViewById(R.id.tvMainFirstNum);
         tvMainSecondNum = findViewById(R.id.tvMainSecondNum);
@@ -42,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         btnMainChallenge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                exercise.generateNumberChellenge();
+                generateNumberChallenge();
                 updateView();
             }
         });
@@ -50,20 +57,19 @@ public class MainActivity extends AppCompatActivity {
         btnMultiTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                exercise.generateNumberMultiTable();
+                generateNumberMultiTable();
                 updateView();
             }
         });
 
         btnMulti20= findViewById(R.id.btnMulti20);
-        btnMultiTable.setOnClickListener(new View.OnClickListener() {
+        btnMulti20.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                exercise.generateNumberTillTwenty();
+                generateNumberTillTwenty();
                 updateView();
             }
         });
-
     }
 
 
@@ -72,16 +78,48 @@ public class MainActivity extends AppCompatActivity {
      *
      */
     private void updateView() {
-        tvMainFirstNum.setText(exercise.getNum1()+"");
-        tvMainSecondNum.setText(exercise.getNum2()+"");
+        tvMainFirstNum.setText(num1+"");
+        tvMainSecondNum.setText(num2+"");
     }
 
+    /**
+     * challenge
+     */
+    public  void  generateNumberChallenge(){
+        Random r = new Random();
+        num1 = r.nextInt(10);
+        num2 = r.nextInt(10) + 10;
+    }
 
-    public void checkAnswer(View view) {
-        if(exercise.answeredCorrect(etMainAnswer.getText().toString())){
+    /**
+     * multi table
+     */
+    public  void  generateNumberMultiTable(){
+        Random r = new Random();
+        num1 = r.nextInt(10);
+        num2 = r.nextInt(90)+10;
+    }
+
+    /**
+     * till 20
+     */
+    public  void  generateNumberTillTwenty(){
+        Random r = new Random();
+        this.num1 = r.nextInt(10);
+        this.num2 = r.nextInt(10);
+    }
+
+    /**
+     * check answer
+     */
+    public void checkAnswer() {
+        result = num1*num2;
+        String res=result+"";
+        if(res.equals(etMainAnswer.getText().toString())){
             Toast.makeText(this, "success", Toast.LENGTH_LONG).show();
         }else{
             Toast.makeText(this, "error", Toast.LENGTH_LONG).show();
         }
     }
+
 }

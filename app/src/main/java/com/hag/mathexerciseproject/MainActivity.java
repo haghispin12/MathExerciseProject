@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
     private  Button btnMulti20;
 
+    private Button btnMainCheck;
+
     private EditText etMainAnswer;
     private int num1;
     private int num2;
@@ -70,6 +72,14 @@ public class MainActivity extends AppCompatActivity {
                 updateView();
             }
         });
+
+        btnMainCheck= findViewById(R.id.btnMulti20);
+        btnMainCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkAnswer();
+            }
+        });
     }
 
 
@@ -88,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
     public  void  generateNumberChallenge(){
         Random r = new Random();
         num1 = r.nextInt(10);
-        num2 = r.nextInt(10) + 10;
+        num2 = r.nextInt(90)+10;
     }
 
     /**
@@ -96,8 +106,9 @@ public class MainActivity extends AppCompatActivity {
      */
     public  void  generateNumberMultiTable(){
         Random r = new Random();
-        num1 = r.nextInt(10);
-        num2 = r.nextInt(90)+10;
+        this.num1 = r.nextInt(10);
+        this.num2 = r.nextInt(10);
+
     }
 
     /**
@@ -105,8 +116,8 @@ public class MainActivity extends AppCompatActivity {
      */
     public  void  generateNumberTillTwenty(){
         Random r = new Random();
-        this.num1 = r.nextInt(10);
-        this.num2 = r.nextInt(10);
+        num1 = r.nextInt(10);
+        num2 = r.nextInt(10) + 10;
     }
 
     /**
